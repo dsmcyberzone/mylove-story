@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -30,6 +28,59 @@
             position: relative;
         }
 
+        /* --- 2️⃣ INTRO SURPRISE SCREEN STYLE --- */
+        #introScreen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6b8b, #ff8da1);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #introScreen h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        #introScreen h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+        }
+
+        #introScreen button {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-pink);
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: 0.3s ease;
+        }
+
+        #introScreen button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         /* --- BACKGROUND FLOATING HEARTS EFFECT --- */
         .heart-bg-container {
             position: fixed;
@@ -51,16 +102,10 @@
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(0) rotate(0deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) scale(0) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% {
-                transform: translateY(-105vh) scale(1.3) rotate(360deg);
-                opacity: 0;
-            }
+            100% { transform: translateY(-105vh) scale(1.3) rotate(360deg); opacity: 0; }
         }
 
         section, header, footer {
@@ -215,7 +260,33 @@
             align-items: center;
             gap: 10px;
             border: 1px solid rgba(255,255,255,0.3);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* 1️⃣ LIVE LOVE COUNTER STYLE */
+        .love-counter {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .love-counter h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .love-counter p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0;
         }
 
         .sub-romantic-text {
@@ -259,7 +330,7 @@
             display: flex;
             justify-content: space-around;
             align-items: flex-start;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
         }
@@ -278,7 +349,7 @@
         .timeline-item {
             position: relative;
             z-index: 2;
-            width: 18%;
+            width: 22%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -330,11 +401,11 @@
         .instruction { font-size: 0.9rem; color: #888; margin-bottom: 20px; font-style: italic; }
         .envelope-wrapper {
             position: relative;
-            width: 290px;
-            height: 190px;
+            width: 330px;
+            height: 210px;
             margin: 50px auto 0 auto;
             cursor: pointer;
-            perspective: 1000px;
+            perspective: 1500px;
         }
 
         .envelope {
@@ -352,9 +423,9 @@
             left: 0;
             width: 0;
             height: 0;
-            border-left: 145px solid transparent;
-            border-right: 145px solid transparent;
-            border-top: 95px solid #ff6b8b;
+            border-left: 165px solid transparent;
+            border-right: 165px solid transparent;
+            border-top: 105px solid #ff6b8b;
             transform-origin: top;
             transition: transform 0.4s ease, z-index 0.2s;
             z-index: 4;
@@ -366,10 +437,10 @@
             left: 0;
             width: 0;
             height: 0;
-            border-left: 145px solid #ffa3b5;
+            border-left: 165px solid #ffa3b5;
             border-right: 145px solid #ffa3b5;
-            border-bottom: 95px solid #ff7c97;
-            border-top: 95px solid transparent;
+            border-bottom: 105px solid #ff7c97;
+            border-top: 105px solid transparent;
             border-radius: 0 0 15px 15px;
             z-index: 3;
         }
@@ -377,42 +448,51 @@
         .letter {
             position: absolute;
             bottom: 5px;
-            left: 10px;
-            width: 270px;
-            height: 170px;
+            left: 12px;
+            width: 306px;
+            height: 190px;
             background: #ffffff;
             border-radius: 10px;
-            padding: 15px;
-            transition: transform 0.5s ease 0.2s, height 0.5s ease 0.2s;
+            padding: 20px 15px;
+            transition: transform 0.5s ease 0.2s, height 0.5s ease 0.2s, top 0.5s ease 0.2s;
             z-index: 2;
             overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
 
         .letter-text {
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             color: #444;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: left;
             opacity: 0;
+            height: 100%;
         }
 
-        .letter-text p { margin-bottom: 8px; }
-        .signature {
-            text-align: right;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
-            color: #ff4f8b;
-            margin-top: 10px;
+        .letter-text p { margin-bottom: 12px; }
+        .letter-text h3 { text-align: center; color: var(--dark-pink); margin-bottom: 15px; font-size: 1.1rem; }
+        
+        .signature-block {
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px dashed #ffb6c1;
+            padding-top: 12px;
         }
+        
+        .signature-block p { margin-bottom: 5px; }
 
         .envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 1; }
         .envelope-wrapper.open .letter {
-            transform: translateY(-110px);
-            height: 270px;
+            transform: translateY(-210px);
+            height: 380px;
             z-index: 5;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
-        .envelope-wrapper.open .letter-text { opacity: 1; overflow-y: auto; height: 100%; }
+        .envelope-wrapper.open .letter-text { opacity: 1; overflow-y: auto; }
+
+        .letter-text::-webkit-scrollbar { width: 4px; }
+        .letter-text::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .letter-text::-webkit-scrollbar-thumb { background: #ffb6c1; border-radius: 10px; }
 
         /* --- Memories Gallery --- */
         .gallery-sec { background-color: #fff5f7; }
@@ -445,9 +525,7 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
             color: #fff;
         }
-        .whatsapp-btn i {
-            font-size: 1.3rem;
-        }
+        .whatsapp-btn i { font-size: 1.3rem; }
         @keyframes pulseBtn {
             0% { transform: scale(1); }
             50% { transform: scale(1.04); }
@@ -481,9 +559,10 @@
                 background: linear-gradient(to bottom, rgba(216, 67, 108, 0.4) 20%, rgba(216, 67, 108, 0.85) 60%, rgba(216, 67, 108, 0.95) 90%), url('image1.png') no-repeat center 20%/cover;
             }
 
-            .hero-content { max-width: 100%; }
+            .hero-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 0.95rem; }
+            .love-counter { text-align: center; margin: 10px auto 0 auto; }
 
             .timeline { flex-direction: column; align-items: center; gap: 30px; }
             .timeline::before { width: 2px; height: 80%; top: 20px; left: 50%; transform: translateX(-50%); }
@@ -495,24 +574,33 @@
             
             .reason-card { width: 45%; }
             .whatsapp-btn { padding: 12px 24px; font-size: 0.95rem; }
+            
+            .envelope-wrapper { width: 290px; height: 190px; }
+            .flap, .pocket { border-left-width: 145px; border-right-width: 145px; }
+            .flap { border-top-width: 95px; }
+            .pocket { border-bottom-width: 95px; border-top-width: 95px; }
+            .letter { width: 266px; height: 170px; }
+            .envelope-wrapper.open .letter { transform: translateY(-190px); height: 320px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- AUDIO PLAYER TAG -->
+    <div id="introScreen">
+        <h1>💌</h1>
+        <h2>A Special Surprise Awaits You</h2>
+        <button onclick="startLoveStory()">Open My Gift ❤️</button>
+    </div>
+
     <audio id="myAudio" src="music.mp3" loop></audio>
 
-    <!-- FLOATING HEARTS BACKGROUND -->
     <div class="heart-bg-container" id="heartsContainer"></div>
 
-    <!-- Preloader -->
     <div id="loader">
         <div class="heart-loader"><i class="fas fa-heart"></i></div>
         <p>Our Love Story Loading...</p>
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">Our Love Story</div>
         <nav>
@@ -526,16 +614,22 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg-image"></div>
         <div class="hero-content">
             <h1>Happy<br>3<sup>rd</sup> Anniversary</h1>
             <p>Three years of love, laughter & endless memories with my favorite person. ❤️</p>
+            
             <div class="date-badge">
                 <i class="far fa-calendar-alt"></i>
                 <span>2026 - 07 - 10</span>
             </div>
+
+            <div class="love-counter">
+                <h3 id="loveDays">0 Days Together ❤️</h3>
+                <p id="loveTime"></p>
+            </div>
+
             <div class="sub-romantic-text">You + Me = Forever 💕</div>
         </div>
 
@@ -546,29 +640,23 @@
         </div>
     </section>
 
-    <!-- Our Journey Section -->
     <section class="journey-sec reveal">
         <div class="section-title">Our Journey 💬</div>
         <div class="timeline">
             <div class="timeline-item">
+                <div class="icon-wrapper"><i class="fas fa-comment-dots"></i></div>
+                <h4>2023 - 07 - 07</h4>
+                <p>First Message</p>
+            </div>
+            <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-heart"></i></div>
                 <h4>2023 - 07 - 10</h4>
-                <p>We became friends</p>
+                <p>Love Started</p>
             </div>
             <div class="timeline-item">
-                <div class="icon-wrapper"><i class="fas fa-coffee"></i></div>
-                <h4>2023 - 09 - 15</h4>
-                <p>First hangout</p>
-            </div>
-            <div class="timeline-item">
-                <div class="icon-wrapper"><i class="fas fa-camera"></i></div>
-                <h4>2024 - 02 - 14</h4>
-                <p>First Valentine's</p>
-            </div>
-            <div class="timeline-item">
-                <div class="icon-wrapper"><i class="fas fa-plane"></i></div>
-                <h4>2024 - 12 - 31</h4>
-                <p>Best moments</p>
+                <div class="icon-wrapper"><i class="fas fa-kiss-wink-heart"></i></div>
+                <h4>2025 - 05 - 02</h4>
+                <p>Our First Kiss</p>
             </div>
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-infinity"></i></div>
@@ -578,7 +666,6 @@
         </div>
     </section>
 
-    <!-- Reasons I Love You Section -->
     <section class="reveal">
         <div class="section-title">Reasons I Love You ❤️</div>
         <div class="reasons-grid">
@@ -605,7 +692,6 @@
         </div>
     </section>
 
-    <!-- Interactive Love Letter Section -->
     <section class="love-letter-section reveal">
         <div class="section-title">A Special Note For You... 💌</div>
         <p class="instruction">ලියුම කියවන්න කවරය උඩ ක්ලික් කරන්න ❤️</p>
@@ -616,18 +702,40 @@
                 <div class="pocket"></div>
                 <div class="letter">
                     <div class="letter-text">
-                        <p><b>Dear Trishy,</b></p>
-                        <p>ඔයා මගේ ජීවිතයට ආපු දවසේ ඉඳන් අද වෙනකම් මාව ලෝකයේ සතුටුම කෙනා කරාට ගොඩක් ස්තූතියි.</p>
-                        <p>අපි ගත කරපු හැම තත්පරයක්ම මට හීනයක් වගේ ලස්සනයි. අපේ ආදරයට අවුරුදු 3ක් පිරෙන මේ මොහොතේ මට ඔයාට කියන්න තියෙන්නේ එකම දෙයයි...</p>
-                        <p>මම ඔයාට හැමදාටම වඩා අද ආදරෙයි, හෙට මීටත් වඩා ආදරය කරනවා. මගේ අවසාන හුස්ම පොද දක්වාම මම ඔයාගේම විතරයි! ❤️</p>
-                        <p class="signature">~ ඔයාගේම විතරයි ~</p>
+                        <h3>💌 Happy 3rd Anniversary My Love 💌</h3>
+                        <p><b>Dear Trishy, ❤️</b></p>
+                        <p>අද 2026 ජූලි 10.</p>
+                        <p>අපේ ජීවිතවල විශේෂම දවසක්. අදට හරියටම අවුරුදු තුනක් වෙනවා අපි දෙන්නා එකට මේ ලස්සන ගමන පටන් අරගෙන.</p>
+                        <p>2023 ජූලි 10 වෙනිදා මට තවමත් මතකයි. එදා මම හිතුවෙවත් නැහැ ඔයා මගේ ජීවිතේ මෙච්චර ලොකු කොටසක් වෙයි කියලා. ඒ දවසේ පටන් ගත්ත කතාබහ, ඒ puñci මොහොතවල්, ඒ හිනාවල්, අද වෙනකොට මගේ ජීවිතේ වටිනාම මතක වෙලා තියෙනවා.</p>
+                        <p>මේ අවුරුදු තුන ඇතුළේ අපි එකට ගොඩක් දේවල් දැක්කා. සතුටු වෙච්ච දවස් තිබුණා. දුක් වෙච්ච දවස් තිබුණා. තරහා වෙච්ච අවස්ථා තිබුණා. එකිනෙකා තේරුම් ගන්න අමාරු වෙච්ච මොහොතවල් තිබුණා. ඒත් ඒ හැමදේම මැද අපි තාමත් එකට ඉන්නවා. ඒක තමයි මට වටින්නේ.</p>
+                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. කතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් පුළුවන් කෙනෙක් ලැබුණා.</p>
+                        <p>මම දන්නවා මම හැමවෙලේම perfect كෙනෙක් නෙවෙයි කියලා. සමහර වෙලාවට වැරදි කරනවා. ඔයාව දුක් කරනවා. තරහා ගස්සනවා. ඒත් එක දෙයක් මම දන්නවා... මම ඔයාට ආදරෙයි. ❤️</p>
+                        <p>ඒ ආදරේ 2023 ජූලි 10 තිබුණා වගේම අදත් තියෙනවා. ඒ වගේම හෙටත් තියේවි.</p>
+                        <p>ඔයාගේ හිනාව දැක්කම මට දැනෙන සතුට වචනවලින් කියන්න බැහැ. ඔයාගේ message එකක් ආවම දැනෙන හැඟීම විස්තර කරන්න බැහැ. ඔයා ගැන හිතන හැම මොහොතකම මගේ හිතට එන්නේ සැනසීමක්.</p>
+                        <p>Trishy, ඔයා මගේ girlfriend විතරක් නෙවෙයි. ඔයා මගේ best friend. ඔයා මගේ comfort place. ඔයා මගේ safe place. ඔයා මගේ favorite person.</p>
+                        <p>මේ අවුරුදු තුන ඇතුළේ අපි හදාගත්ත මතක හැම එකක්ම මගේ හිතේ හැමදාම තියේවි. අපි එකට ගිය තැන්. එකට ගත්ත photos. රෑ වෙනකන් කරපු chats. Call කරපු පැය ගණන්. එකට හිනාවෙච්ච විහිළු. ඒ හැමදේම මගේ ජීවිතේ ලස්සනම කොටසක්.</p>
+                        <p>සමහර වෙලාවට මම හිතනවා... 2023 ජූලි 10 වෙනිදා අපි දෙන්නා හම්බෙලා නැත්නම් මගේ ජීවිතේ... කොහොම වෙයිද කියලා. ඒත් වාසනාවකට අපි හම්බුණා. වාසනාවකට ඔයා මගේ ජීවිතේට ආවා. වාසනාවකට මට ඔයා ලැබුණා. ඒ වෙනුවෙන් මම හැමදාම ස්තූතිවන්ත වෙනවා.</p>
+                        <p>අද අපේ 3rd Anniversary එක. ඒත් මට මේක අවසානයක් නෙවෙයි. මේක තව ලස්සන කතාවක තවත් chapter එකක් විතරයි. මට ඕනේ තව අවුරුදු ගොඩක් ඔයා එක්ක memories හදාගන්න. තව photos ගන්න. තව හිනාවෙන්න. තව දේවල් අත්විඳින්න. තව ආදරේ කරන්න. අද වගේම හැමදාම.</p>
+                        <p>අන්තිමට මට කියන්න තියෙන්නේ එක දෙයක් විතරයි...<br>Thank you for loving me. ❤️<br>Thank you for staying with me. ❤️<br>Thank you for being my happiness. ❤️</p>
+                        <p>Happy 3rd Anniversary, My Love. 🌹</p>
+                        
+                        <div class="signature-block">
+                            <p>2023.07.10 ➝ 2026.07.10</p>
+                            <p><b>Three Years.</b></p>
+                            <p><b>Countless Memories.</b></p>
+                            <p><b>One Beautiful Love Story. ❤️</b></p>
+                            <br>
+                            <p>Forever Yours,</p>
+                            <p style="font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #ff4f8b;">❤️ Love ❤️</p>
+                            <br>
+                            <p style="font-style: italic; color: #666;">"ඔයා මගේ අද දවසේ සතුට විතරක් නෙවෙයි... මගේ හෙට දවසේ බලාපොරොත්තුවත් ඔයාමයි." ❤️🥺🌹</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Memories Gallery -->
     <section class="gallery-sec reveal">
         <div class="section-title">Our Memories 💕</div>
         <div class="gallery">
@@ -636,14 +744,12 @@
         </div>
     </section>
 
-    <!-- Footer Section with Custom WhatsApp Text -->
     <footer class="reveal">
         <p class="quote">Thank you for being my today and all of my tomorrows.</p>
         <p class="subquote">I love you more than words can say.</p>
         
-        <!-- Interactive WhatsApp Link Section (⚠️ 947XXXXXXXX වෙනුවට ඔයාගේ නම්බර් එක දාන්න) -->
         <div class="whatsapp-container">
-            <a href="https://wa.me/94723383936?text=Happy%20Anniversary%20Baby%20%21%F0%9F%A5%B9%E2%9D%A4%EF%B8%8F" target="_blank" class="whatsapp-btn">
+            <a href="https://wa.me/947XXXXXXXX?text=Happy%20Anniversary%20Baby%20%21%F0%9F%A5%B9%E2%9D%A4%EF%B8%8F" target="_blank" class="whatsapp-btn">
                 <i class="fab fa-whatsapp"></i> Send a Message to My Love ❤️
             </a>
         </div>
@@ -655,6 +761,32 @@
         const audio = document.getElementById('myAudio');
         const musicBtn = document.getElementById('musicToggle');
 
+        /* --- 2️⃣ INTRO SURPRISE SCREEN JS --- */
+        function startLoveStory(){
+            document.getElementById("introScreen").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("introScreen").style.display = "none";
+            }, 400);
+            // Autoplay Music Trigger on First Interaction (Gift Button Click)
+            playAudio();
+        }
+
+        /* --- 1️⃣ LIVE LOVE COUNTER JS --- */
+        function updateLoveCounter(){
+            const startDate = new Date("2023-07-10T00:00:00");
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000*60*60*24));
+            const hours = Math.floor(diff / (1000*60*60));
+
+            document.getElementById("loveDays").innerHTML = days + " Days Together ❤️";
+            document.getElementById("loveTime").innerHTML = hours.toLocaleString() + " Hours of Love";
+        }
+        updateLoveCounter();
+        setInterval(updateLoveCounter, 1000);
+
+        /* --- MUSIC UTILITIES --- */
         function toggleMusic() {
             if (audio.paused) { playAudio(); } else { pauseAudio(); }
         }
