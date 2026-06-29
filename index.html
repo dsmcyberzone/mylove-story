@@ -141,13 +141,23 @@
             padding-bottom: 3px;
         }
 
-        .music-icon {
+        /* Music Controller Icon Styling */
+        .music-btn {
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 14px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: 0.3s;
         }
+        .music-btn:hover { transform: scale(1.1); }
+        .music-btn.playing i { animation: spin 4s linear infinite; color: #fff; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* --- Hero Section (PC & Mobile Optimized) --- */
+        /* --- Hero Section --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -420,10 +430,10 @@
         footer p.subquote { font-size: 1.1rem; margin-bottom: 25px; opacity: 0.9; }
         footer .credits { font-size: 0.75rem; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
 
-        /* 📱 --- MOBILE RESPONSIVE STYLES (ෆෝන් එකට සුපිරියටම හදන කොටස) --- */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
-            nav { display: none; } /* Mobile වලදී menu එක හංගනවා ඉඩ මදි නිසා */
+            nav { display: none; }
             
             .hero {
                 flex-direction: column;
@@ -433,7 +443,6 @@
             }
 
             .hero-bg-image {
-                /* Mobile වලදී පින්තූරය උඩට යනවා, Gradient එක යටට එනවා */
                 background: linear-gradient(to bottom, rgba(216, 67, 108, 0.4) 20%, rgba(216, 67, 108, 0.85) 60%, rgba(216, 67, 108, 0.95) 90%), url('image1.png') no-repeat center 20%/cover;
             }
 
@@ -441,21 +450,21 @@
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 0.95rem; }
 
-            /* Timeline Mobile එකට සිරස්ව (Vertical) හදනවා */
             .timeline { flex-direction: column; align-items: center; gap: 30px; }
             .timeline::before { width: 2px; height: 80%; top: 20px; left: 50%; transform: translateX(-50%); }
             .timeline-item { width: 100%; }
 
-            /* Gallery එක Mobile වලදී එකකට එකක් යටට දානවා */
             .gallery { flex-direction: column; align-items: center; gap: 20px; }
             .gallery-img { width: 90%; }
             .gallery-img img { height: 280px; }
             
-            .reason-card { width: 45%; } /* කාඩ් දෙක බැගින් පේනවා */
+            .reason-card { width: 45%; }
         }
     </style>
 </head>
 <body>
+
+    <audio id="myAudio" src="music.mp3" loop></audio>
 
     <div class="heart-bg-container" id="heartsContainer"></div>
 
@@ -472,7 +481,9 @@
             <a href="#">Memories</a>
             <a href="#">Reasons</a>
         </nav>
-        <div class="music-icon"><i class="fas fa-music"></i></div>
+        <div class="music-btn" id="musicToggle" onclick="toggleMusic()">
+            <i class="fas fa-music"></i>
+        </div>
     </header>
 
     <section class="hero">
@@ -587,6 +598,47 @@
     </footer>
 
     <script>
+        const audio = document.getElementById('myAudio');
+        const musicBtn = document.getElementById('musicToggle');
+
+        // Toggle Music On/Off Manual Button
+        function toggleMusic() {
+            if (audio.paused) {
+                playAudio();
+            } else {
+                pauseAudio();
+            }
+        }
+
+        function playAudio() {
+            audio.play().then(() => {
+                musicBtn.classList.add('playing');
+            }).catch(err => console.log("Audio play blocked: " + err));
+        }
+
+        function pauseAudio() {
+            audio.pause();
+            musicBtn.classList.remove('playing');
+        }
+
+        // Toggle Letter + Trigger Autoplay Music when clicked
+        function toggleLetter() {
+            const envelope = document.querySelector('.envelope-wrapper');
+            envelope.classList.toggle('open');
+            
+            // If music hasn't started yet, play it when she opens the letter
+            if (audio.paused) {
+                playAudio();
+            }
+        }
+
+        // Try to play music on any initial click on the body (Fallback)
+        document.body.addEventListener('click', () => {
+            if (audio.paused && !document.querySelector('.envelope-wrapper').classList.contains('open')) {
+                // optional: automatically start on first tap anywhere if desired
+            }
+        }, { once: true });
+
         // Floating Hearts Background Generator
         function createHeart() {
             const container = document.getElementById('heartsContainer');
@@ -624,11 +676,6 @@
             }
         }
         window.addEventListener('scroll', reveal);
-
-        // Toggle Letter
-        function toggleLetter() {
-            document.querySelector('.envelope-wrapper').classList.toggle('open');
-        }
     </script>
 </body>
 </html>
