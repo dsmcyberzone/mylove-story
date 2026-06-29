@@ -311,7 +311,7 @@
             display: block;
             width: calc(100% + 1.3px);
             height: 70px;
-        }
+            }
 
         .wave-divider .shape-fill { fill: #fff5f7; }
 
@@ -506,7 +506,6 @@
             box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
 
-        /* 5️⃣ TYPEWRITER SMOOTH REVEAL REPLACEMENT */
         .letter-text {
             font-size: 0.82rem;
             color: #444;
@@ -536,7 +535,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
-        /* Triggers the typewriter reveal smoothly */
         .envelope-wrapper.open .letter-text {
             opacity: 1;
             overflow-y: auto;
@@ -557,6 +555,46 @@
         .gallery { display: flex; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto; }
         .gallery-img { width: 45%; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.12); }
         .gallery-img img { width: 100%; height: 320px; object-fit: cover; display: block; }
+
+        /* --- 8️⃣ FINAL SURPRISE SECTION STYLE --- */
+        .final-surprise {
+            background: linear-gradient(135deg, #ffeef2, #fff5f7);
+            padding: 80px 20px;
+            border-top: 2px dashed #ffb6c1;
+            border-bottom: 2px dashed #ffb6c1;
+        }
+
+        .final-surprise h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--dark-pink);
+            margin-bottom: 15px;
+        }
+
+        .final-surprise p {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .final-surprise button {
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #ff6b8b, #ff4f73);
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 107, 139, 0.4);
+            transition: 0.3s ease;
+        }
+
+        .final-surprise button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(255, 107, 139, 0.6);
+        }
 
         /* --- WhatsApp Beautiful Button Style --- */
         .whatsapp-container {
@@ -622,7 +660,6 @@
             .hero p { font-size: 0.95rem; }
             .love-counter { text-align: center; margin: 10px auto 0 auto; }
 
-            /* Timeline Mobile Stacked Layout */
             .timeline { flex-direction: column; align-items: center; gap: 30px; }
             .timeline::before { width: 2px; height: 85%; top: 20px; left: 50%; transform: translateX(-50%); }
             .timeline-item { width: 100%; }
@@ -634,6 +671,10 @@
             .flip-card { width: 45%; min-width: 145px; height: 160px; }
             .flip-front, .flip-back { padding: 10px; font-size: 0.8rem; }
             .flip-front i { font-size: 1.4rem; margin-bottom: 6px; }
+
+            .final-surprise h2 { font-size: 2.3rem; }
+            .final-surprise p { font-size: 1rem; }
+            .final-surprise button { padding: 12px 40px; font-size: 16px; }
             
             .whatsapp-btn { padding: 12px 24px; font-size: 0.95rem; }
             
@@ -784,7 +825,7 @@
                         <p>අපේ ජීවිතවල විශේෂම දවසක්. අදට හරියටම අවුරුදු තුනක් වෙනවා අපි දෙන්නා එකට මේ ලස්සන ගමන පටන් අරගෙන.</p>
                         <p>2023 ජූලි 10 වෙනිදා මට තවමත් මතකයි. එදා මම හිතුවෙවත් නැහැ ඔයා මගේ ජීවිතේ මෙච්චර ලොකු කොටසක් වෙයි කියලා. ඒ දවසේ පටන් ගත්ත කතාබහ, ඒ puñci මොහොතවල්, ඒ හිනාවල්, අද වෙනකොට මගේ ජීවිතේ වටිනාම මතක වෙලා තියෙනවා.</p>
                         <p>මේ අවුරුදු තුන ඇතුළේ අපි එකට ගොඩක් දේවල් දැක්කා. සතුටු වෙච්ච දවස් තිබුණා. දුක් වෙච්ච දවස් තිබුණා. තරහා වෙච්ච අවස්ථා තිබුණා. එකිනෙකා තේරුම් ගන්න අමාරු වෙච්ච මොහොතවල් තිබුණා. ඒත් ඒ හැමදේම මැද අපි තාමත් එකට ඉන්නවා. ඒක තමයි මට වටින්නේ.</p>
-                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. கතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් පුළුවන් කෙනෙක් ලැබුණා.</p>
+                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. කතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් පුළුවන් කෙනෙක් ලැබුණා.</p>
                         <p>මම දන්නවා මම හැමවෙලේම perfect කෙනෙක් නෙවෙයි කියලා. සමහර වෙලාවට වැරදි කරනවා. ඔයාව දුක් කරනවා. තරහා ගස්සනවා. ඒත් එක දෙයක් මම දන්නවා... මම ඔයාට ආදරෙයි. ❤️</p>
                         <p>ඒ ආදරේ 2023 ජූලි 10 තිබුණා වගේම අදත් තියෙනවා. ඒ වගේම හෙටත් තියේවි.</p>
                         <p>ඔයාගේ හිනාව දැක්කම මට දැනෙන සතුට වචනවලින් කියන්න බැහැ. ඔයාගේ message එකක් ආවම දැනෙන හැඟීම විස්තර කරන්න බැහැ. ඔයා ගැන හිතන හැම මොහොතකම මගේ හිතට එන්නේ සැනසීමක්.</p>
@@ -818,6 +859,12 @@
             <div class="gallery-img"><img src="image2.png" alt="Memory 1"></div>
             <div class="gallery-img"><img src="image3.png" alt="Memory 2"></div>
         </div>
+    </section>
+
+    <section class="final-surprise reveal">
+        <h2>❤️ One Last Question ❤️</h2>
+        <p>Will You Continue Making Beautiful Memories With Me Forever?</p>
+        <button onclick="finalAnswer()">YES ❤️</button>
     </section>
 
     <footer class="reveal">
@@ -863,20 +910,33 @@
         updateLoveCounter();
         setInterval(updateLoveCounter, 1000);
 
-        /* --- 3️⃣ ANNIVERSARY FIREWORKS JS (CELEBRATION CONFETTI) --- */
+        /* --- 3️⃣ ANNIVERSARY FIREWORKS JS (ON LOAD) --- */
         window.addEventListener("load",()=>{
             const today = new Date();
-            // Runs specifically on July 10th anniversary
             if(today.getMonth() === 6 && today.getDate() === 10){
                 setTimeout(()=>{
-                    confetti({
-                        particleCount: 250,
-                        spread: 180,
-                        origin: { y: 0.6 }
-                    });
+                    triggerConfetti();
                 }, 2500);
             }
         });
+
+        /* --- 8️⃣ FINAL SURPRISE JS (WITH BONUS CONFETTI BURST) --- */
+        function finalAnswer(){
+            // Triggers celebratory confetti instantly on click
+            triggerConfetti();
+            setTimeout(() => {
+                alert("I Love You Forever ❤️");
+            }, 100);
+        }
+
+        // Shared Confetti Trigger Function
+        function triggerConfetti() {
+            confetti({
+                particleCount: 250,
+                spread: 180,
+                origin: { y: 0.6 }
+            });
+        }
 
         /* --- MUSIC UTILITIES & ENVELOPE FUNCTIONS --- */
         function toggleMusic() {
