@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -55,19 +53,14 @@
                 transform: translateY(0) scale(0) rotate(0deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% {
                 transform: translateY(-105vh) scale(1.3) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* Elements inside must be above the floating hearts */
         section, header, footer {
             position: relative;
             z-index: 1;
@@ -100,14 +93,12 @@
             color: var(--dark-pink);
         }
 
-        @keyframes beat {
-            to { transform: scale(1.3); }
-        }
+        @keyframes beat { to { transform: scale(1.3); } }
 
         /* --- Scroll Animations --- */
         .reveal {
             position: relative;
-            transform: translateY(50px);
+            transform: translateY(40px);
             opacity: 0;
             transition: all 1s ease;
         }
@@ -122,7 +113,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
+            padding: 20px 30px;
             position: absolute;
             width: 100%;
             z-index: 100;
@@ -135,27 +126,28 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
+        nav { display: flex; }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.95rem;
+            margin: 0 10px;
+            font-size: 0.85rem;
             font-weight: 400;
             transition: 0.3s;
         }
 
         nav a:hover, nav a.active {
             border-bottom: 2px solid #fff;
-            padding-bottom: 5px;
+            padding-bottom: 3px;
         }
 
         .music-icon {
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
         }
 
-        /* --- Hero Section (Exact Layout of the Mockup) --- */
+        /* --- Hero Section (PC & Mobile Optimized) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -163,18 +155,16 @@
             align-items: center;
             padding: 0 10%;
             overflow: hidden;
-            background-color: #f7a3b7; /* Fallback color */
+            background-color: #f7a3b7;
         }
 
-        /* 100% Exact Blend Mode for your design image */
         .hero-bg-image {
             position: absolute;
             top: 0;
             right: 0;
             width: 100%;
             height: 100%;
-            /* Left side has dark pink/purple overlay gradient, Right side fades smoothly into the image */
-            background: linear-gradient(to right, rgba(216, 67, 108, 0.85) 15%, rgba(216, 67, 108, 0.6) 35%, rgba(0, 0, 0, 0) 75%), url('image1.png') no-repeat right center/cover;
+            background: linear-gradient(to right, rgba(216, 67, 108, 0.85) 15%, rgba(216, 67, 108, 0.5) 45%, rgba(0, 0, 0, 0) 80%), url('image1.png') no-repeat right center/cover;
             z-index: 1;
         }
 
@@ -183,7 +173,7 @@
             max-width: 550px;
             color: #fff;
             animation: fadeInUp 1.2s ease-out;
-            z-index: 2; /* Stands on top of background image layer */
+            z-index: 2;
         }
 
         @keyframes fadeInUp {
@@ -203,7 +193,6 @@
             font-size: 1.05rem;
             margin-bottom: 25px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            opacity: 0.95;
         }
 
         .date-badge {
@@ -216,20 +205,16 @@
             gap: 10px;
             border: 1px solid rgba(255,255,255,0.3);
             margin-bottom: 20px;
-            font-size: 0.95rem;
         }
 
-        /* Subtitle Styling 'You + Me = Forever' from mockup */
         .sub-romantic-text {
             font-family: 'Dancing Script', cursive;
             font-size: 1.8rem;
             color: #ffeef2;
-            margin-top: 25px;
+            margin-top: 20px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            opacity: 0.9;
         }
 
-        /* Smooth Bottom Wave Curve from logo.png_2.png */
         .wave-divider {
             position: absolute;
             bottom: -2px;
@@ -243,31 +228,22 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 90px;
+            height: 70px;
         }
 
-        .wave-divider .shape-fill {
-            fill: #fff5f7;
-        }
+        .wave-divider .shape-fill { fill: #fff5f7; }
 
-        /* --- Sections Common Style --- */
-        section {
-            padding: 90px 20px;
-            text-align: center;
-        }
-
+        /* --- Sections Style --- */
+        section { padding: 70px 20px; text-align: center; }
         .section-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.2rem;
+            font-size: 3rem;
             color: var(--dark-pink);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         /* --- Our Journey (Timeline) --- */
-        .journey-sec {
-            background-color: #fff5f7;
-        }
-
+        .journey-sec { background-color: #fff5f7; }
         .timeline {
             display: flex;
             justify-content: space-around;
@@ -295,50 +271,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: 0.3s;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-5px);
         }
 
         .icon-wrapper {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-pink);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border: 2px solid #ffb6c1;
-            transition: 0.3s;
         }
 
-        .timeline-item:hover .icon-wrapper {
-            background: var(--primary-pink);
-            color: #fff;
-        }
-
-        .timeline-item h4 {
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .timeline-item p {
-            font-size: 0.8rem;
-            color: #777;
-        }
+        .timeline-item h4 { font-size: 0.85rem; color: #333; margin-bottom: 5px; }
+        .timeline-item p { font-size: 0.75rem; color: #777; line-height: 1.3; }
 
         /* --- Reasons Section --- */
         .reasons-grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             max-width: 1100px;
             margin: 0 auto;
@@ -346,107 +303,167 @@
 
         .reason-card {
             background: rgba(255, 255, 255, 0.9);
-            padding: 30px 20px;
+            padding: 25px 15px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
             width: 180px;
             transition: 0.3s;
         }
 
-        .reason-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.3);
+        .reason-card:hover { transform: translateY(-5px); }
+        .reason-card i { font-size: 1.4rem; color: var(--primary-pink); margin-bottom: 12px; }
+        .reason-card h4 { font-size: 0.95rem; margin-bottom: 8px; color: #333; }
+        .reason-card p { font-size: 0.8rem; color: #666; }
+
+        /* --- Interactive Love Letter --- */
+        .instruction { font-size: 0.9rem; color: #888; margin-bottom: 20px; font-style: italic; }
+        .envelope-wrapper {
+            position: relative;
+            width: 290px;
+            height: 190px;
+            margin: 50px auto 0 auto;
+            cursor: pointer;
+            perspective: 1000px;
         }
 
-        .reason-card i {
-            font-size: 1.5rem;
-            color: var(--primary-pink);
-            margin-bottom: 15px;
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #ff8da1;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
         }
 
-        .reason-card h4 {
-            font-size: 1rem;
-            margin-bottom: 8px;
-            color: #333;
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 145px solid transparent;
+            border-right: 145px solid transparent;
+            border-top: 95px solid #ff6b8b;
+            transform-origin: top;
+            transition: transform 0.4s ease, z-index 0.2s;
+            z-index: 4;
         }
 
-        .reason-card p {
-            font-size: 0.8rem;
-            color: #666;
+        .pocket {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 145px solid #ffa3b5;
+            border-right: 145px solid #ffa3b5;
+            border-bottom: 95px solid #ff7c97;
+            border-top: 95px solid transparent;
+            border-radius: 0 0 15px 15px;
+            z-index: 3;
         }
+
+        .letter {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            width: 270px;
+            height: 170px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            transition: transform 0.5s ease 0.2s, height 0.5s ease 0.2s;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .letter-text {
+            font-size: 0.78rem;
+            color: #444;
+            line-height: 1.5;
+            text-align: left;
+            opacity: 0;
+        }
+
+        .letter-text p { margin-bottom: 8px; }
+        .signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #ff4f8b;
+            margin-top: 10px;
+        }
+
+        .envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 1; }
+        .envelope-wrapper.open .letter {
+            transform: translateY(-110px);
+            height: 270px;
+            z-index: 5;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .envelope-wrapper.open .letter-text { opacity: 1; overflow-y: auto; height: 100%; }
 
         /* --- Memories Gallery --- */
-        .gallery-sec {
-            background-color: #fff5f7;
-        }
-
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            max-width: 950px;
-            margin: 0 auto;
-        }
-
-        .gallery-img {
-            width: 45%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .gallery-img img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-            transition: 0.6s ease;
-        }
-
-        .gallery-img img:hover {
-            transform: scale(1.08);
-        }
+        .gallery-sec { background-color: #fff5f7; }
+        .gallery { display: flex; justify-content: center; gap: 20px; max-width: 950px; margin: 0 auto; }
+        .gallery-img { width: 45%; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.12); }
+        .gallery-img img { width: 100%; height: 320px; object-fit: cover; display: block; }
 
         /* --- Footer --- */
         footer {
             background: linear-gradient(to top, #ff6b8b, #ff8da1);
             color: #fff;
-            padding: 60px 20px 20px;
-            text-align: center;
+            padding: 50px 20px 20px;
         }
 
-        footer p.quote {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
+        footer p.quote { font-family: 'Dancing Script', cursive; font-size: 2rem; margin-bottom: 10px; }
+        footer p.subquote { font-size: 1.1rem; margin-bottom: 25px; opacity: 0.9; }
+        footer .credits { font-size: 0.75rem; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
 
-        footer p.subquote {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
+        /* 📱 --- MOBILE RESPONSIVE STYLES (ෆෝන් එකට සුපිරියටම හදන කොටස) --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            nav { display: none; } /* Mobile වලදී menu එක හංගනවා ඉඩ මදි නිසා */
+            
+            .hero {
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 100px 20px 80px 20px;
+                text-align: center;
+            }
 
-        footer .credits {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 15px;
+            .hero-bg-image {
+                /* Mobile වලදී පින්තූරය උඩට යනවා, Gradient එක යටට එනවා */
+                background: linear-gradient(to bottom, rgba(216, 67, 108, 0.4) 20%, rgba(216, 67, 108, 0.85) 60%, rgba(216, 67, 108, 0.95) 90%), url('image1.png') no-repeat center 20%/cover;
+            }
+
+            .hero-content { max-width: 100%; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 0.95rem; }
+
+            /* Timeline Mobile එකට සිරස්ව (Vertical) හදනවා */
+            .timeline { flex-direction: column; align-items: center; gap: 30px; }
+            .timeline::before { width: 2px; height: 80%; top: 20px; left: 50%; transform: translateX(-50%); }
+            .timeline-item { width: 100%; }
+
+            /* Gallery එක Mobile වලදී එකකට එකක් යටට දානවා */
+            .gallery { flex-direction: column; align-items: center; gap: 20px; }
+            .gallery-img { width: 90%; }
+            .gallery-img img { height: 280px; }
+            
+            .reason-card { width: 45%; } /* කාඩ් දෙක බැගින් පේනවා */
         }
     </style>
 </head>
 <body>
 
-    <!-- FLOATING HEARTS BACKGROUND EFFECT LAYER -->
     <div class="heart-bg-container" id="heartsContainer"></div>
 
-    <!-- Preloader -->
     <div id="loader">
         <div class="heart-loader"><i class="fas fa-heart"></i></div>
         <p>Our Love Story Loading...</p>
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">Our Love Story</div>
         <nav>
@@ -454,30 +471,22 @@
             <a href="#">Our Journey</a>
             <a href="#">Memories</a>
             <a href="#">Reasons</a>
-            <a href="#">For You</a>
         </nav>
-        <div class="music-icon">
-            <i class="fas fa-music"></i>
-        </div>
+        <div class="music-icon"><i class="fas fa-music"></i></div>
     </header>
 
-    <!-- Hero Section (Perfect Overlay and Right Alignment for image1.png) -->
     <section class="hero">
         <div class="hero-bg-image"></div>
-        
         <div class="hero-content">
             <h1>Happy<br>3<sup>rd</sup> Anniversary</h1>
             <p>Three years of love, laughter & endless memories with my favorite person. ❤️</p>
-            
             <div class="date-badge">
                 <i class="far fa-calendar-alt"></i>
                 <span>2026 - 07 - 10</span>
             </div>
-            
             <div class="sub-romantic-text">You + Me = Forever 💕</div>
         </div>
 
-        <!-- Wave Design at the Bottom -->
         <div class="wave-divider">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M0,0 C300,90 900,10 1200,80 L1200,120 L0,120 Z" class="shape-fill"></path>
@@ -485,7 +494,6 @@
         </div>
     </section>
 
-    <!-- Our Journey Section -->
     <section class="journey-sec reveal">
         <div class="section-title">Our Journey 💬</div>
         <div class="timeline">
@@ -497,27 +505,26 @@
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-coffee"></i></div>
                 <h4>2023 - 09 - 15</h4>
-                <p>First hangout together</p>
+                <p>First hangout</p>
             </div>
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-camera"></i></div>
                 <h4>2024 - 02 - 14</h4>
-                <p>First Valentine's together</p>
+                <p>First Valentine's</p>
             </div>
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-plane"></i></div>
                 <h4>2024 - 12 - 31</h4>
-                <p>Unforgettable moments</p>
+                <p>Best moments</p>
             </div>
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-infinity"></i></div>
                 <h4>2026 - 07 - 10</h4>
-                <p>3 Years of Love & Counting...</p>
+                <p>3 Years & Counting...</p>
             </div>
         </div>
     </section>
 
-    <!-- Reasons I Love You Section -->
     <section class="reveal">
         <div class="section-title">Reasons I Love You ❤️</div>
         <div class="reasons-grid">
@@ -541,51 +548,56 @@
                 <h4>Our Memories</h4>
                 <p>Priceless moments together</p>
             </div>
-            <div class="reason-card">
-                <i class="fas fa-user-friends"></i>
-                <h4>You & Me</h4>
-                <p>Perfect together, always & forever</p>
+        </div>
+    </section>
+
+    <section class="love-letter-section reveal">
+        <div class="section-title">A Special Note For You... 💌</div>
+        <p class="instruction">ලියුම කියවන්න කවරය උඩ ක්ලික් කරන්න ❤️</p>
+        
+        <div class="envelope-wrapper" onclick="toggleLetter()">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="letter">
+                    <div class="letter-text">
+                        <p><b>Dear Trishy,</b></p>
+                        <p>ඔයා මගේ ජීවිතයට ආපු දවසේ ඉඳන් අද වෙනකම් මාව ලෝකයේ සතුටුම කෙනා කරාට ගොඩක් ස්තූතියි.</p>
+                        <p>අපි ගත කරපු හැම තත්පරයක්ම මට හීනයක් වගේ ලස්සනයි. අපේ ආදරයට අවුරුදු 3ක් පිරෙන මේ මොහොතේ මට ඔයාට කියන්න තියෙන්නේ එකම දෙයයි...</p>
+                        <p>මම ඔයාට හැමදාටම වඩා අද ආදරෙයි, හෙට මීටත් වඩා ආදරය කරනවා. මගේ අවසාන හුස්ම පොද දක්වාම මම ඔයාගේම විතරයි! ❤️</p>
+                        <p class="signature">~ ඔයාගේම විතරයි ~</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Memories Gallery (image2.png & image3.png) -->
     <section class="gallery-sec reveal">
         <div class="section-title">Our Memories 💕</div>
         <div class="gallery">
-            <div class="gallery-img">
-                <img src="image2.png" alt="Memory 1">
-            </div>
-            <div class="gallery-img">
-                <img src="image3.png" alt="Memory 2">
-            </div>
+            <div class="gallery-img"><img src="image2.png" alt="Memory 1"></div>
+            <div class="gallery-img"><img src="image3.png" alt="Memory 2"></div>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="reveal">
         <p class="quote">Thank you for being my today and all of my tomorrows.</p>
         <p class="subquote">I love you more than words can say.</p>
         <div class="credits">Made with ❤️ for my love</div>
     </footer>
 
-    <!-- JavaScript Section -->
     <script>
-        // Floating Hearts Mechanism
+        // Floating Hearts Background Generator
         function createHeart() {
             const container = document.getElementById('heartsContainer');
             if(!container) return;
-            
             const heart = document.createElement('i');
             heart.classList.add('fas', 'fa-heart', 'floating-heart');
-            
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            
             const size = Math.random() * 12 + 8;
             heart.style.fontSize = size + 'px';
             heart.style.opacity = Math.random() * 0.4 + 0.15;
-            
             container.appendChild(heart);
             setTimeout(() => { heart.remove(); }, 7000);
         }
@@ -596,25 +608,27 @@
             const loader = document.getElementById('loader');
             setTimeout(() => {
                 loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    reveal(); 
-                }, 500);
+                setTimeout(() => { loader.style.display = 'none'; reveal(); }, 500);
             }, 800); 
         });
 
-        // Scroll Reveal
+        // Scroll Reveal Animation
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 150) {
+                if (elementTop < windowHeight - 120) {
                     reveals[i].classList.add('active');
                 }
             }
         }
         window.addEventListener('scroll', reveal);
+
+        // Toggle Letter
+        function toggleLetter() {
+            document.querySelector('.envelope-wrapper').classList.toggle('open');
+        }
     </script>
 </body>
 </html>
