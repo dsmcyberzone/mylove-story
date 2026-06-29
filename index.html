@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -27,9 +25,53 @@
             background-color: #fff5f7;
             color: #4a4a4a;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* --- 1. Beautiful Preloader --- */
+        /* --- BACKGROUND FLOATING HEARTS EFFECT --- */
+        .heart-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -20px;
+            color: rgba(255, 107, 139, 0.25);
+            font-size: 14px;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-105vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Elements inside must be above the floating hearts */
+        section, header, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Beautiful Preloader --- */
         #loader {
             position: fixed;
             width: 100%;
@@ -60,7 +102,7 @@
             to { transform: scale(1.3); }
         }
 
-        /* --- 2. Scroll Animations --- */
+        /* --- Scroll Animations --- */
         .reveal {
             position: relative;
             transform: translateY(50px);
@@ -111,20 +153,50 @@
             cursor: pointer;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section with SMOOKE/CLOUD EFFECT (Fixing Image Issue) --- */
         .hero {
-            background: linear-gradient(to bottom, rgba(216, 67, 108, 0.4), rgba(255, 175, 189, 0.2)), url('image1.png') no-repeat center center/cover;
-            height: 95vh;
+            position: relative;
+            height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 10%;
-            position: relative;
+            background-color: #ffb1c1; /* Fallback color */
+            overflow: hidden;
+        }
+
+        /* Image Layer with Smoke Border Mask */
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 107, 139, 0.4), rgba(0,0,0,0.1)), url('image1.png') no-repeat center center/cover;
+            z-index: -1;
+            /* SMOKE EFFECT: Smooth radial blend around the image */
+            box-shadow: inset 0px 0px 100px 30px #fff5f7, inset 0px 0px 40px 10px rgba(255, 245, 247, 0.5);
+            mask-image: radial-gradient(circle at 65% 50%, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 65% 50%, black 30%, transparent 80%);
+        }
+
+        /* Extra cloud puff overlay to blend like the design mockup */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: radial-gradient(circle at bottom, #fff5f7 20%, transparent 80%);
+            pointer-events: none;
+            z-index: 1;
         }
 
         .hero-content {
             max-width: 500px;
             color: #fff;
             animation: fadeInUp 1.2s ease-out;
+            z-index: 2;
         }
 
         @keyframes fadeInUp {
@@ -178,13 +250,14 @@
             transform: scale(1.2) rotate(10deg);
         }
 
-        /* Wave Effect */
+        /* Wave Effect Divider */
         .wave-divider {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             line-height: 0;
+            z-index: 2;
         }
 
         .wave-divider svg {
@@ -202,6 +275,7 @@
         section {
             padding: 80px 20px;
             text-align: center;
+            background: transparent; /* Allows hearts to show through */
         }
 
         .section-title {
@@ -213,7 +287,8 @@
 
         /* --- Our Journey (Timeline) --- */
         .journey-sec {
-            background-color: #ffeef2;
+            background-color: rgba(255, 238, 242, 0.8);
+            backdrop-filter: blur(2px);
         }
 
         .timeline {
@@ -293,7 +368,7 @@
         }
 
         .reason-card {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
@@ -326,7 +401,6 @@
         /* --- Interactive Love Letter Styles --- */
         .love-letter-section {
             padding: 80px 20px;
-            background-color: #fff5f7;
             text-align: center;
         }
 
@@ -443,7 +517,8 @@
 
         /* --- Memories Gallery --- */
         .gallery-sec {
-            background-color: #ffeef2;
+            background-color: rgba(255, 238, 242, 0.8);
+            backdrop-filter: blur(2px);
         }
 
         .gallery {
@@ -503,13 +578,13 @@
 </head>
 <body>
 
-    <!-- 1. Beautiful Preloader -->
+    <div class="heart-bg-container" id="heartsContainer"></div>
+
     <div id="loader">
         <div class="heart-loader"><i class="fas fa-heart"></i></div>
         <p>Our Love Story Loading...</p>
     </div>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">Our Love Story</div>
         <nav>
@@ -524,8 +599,8 @@
         </div>
     </header>
 
-    <!-- Hero Section (image1.png) -->
     <section class="hero">
+        <div class="hero-bg-image"></div>
         <div class="hero-content">
             <h1>Happy<br>3<sup>rd</sup> Anniversary</h1>
             <p>Three years of love, laughter & endless memories with my favorite person. ❤️</p>
@@ -546,7 +621,6 @@
         </div>
     </section>
 
-    <!-- Our Journey Section -->
     <section class="journey-sec reveal">
         <div class="section-title">Our Journey ❤️</div>
         <div class="timeline">
@@ -578,7 +652,6 @@
         </div>
     </section>
 
-    <!-- Reasons I Love You Section -->
     <section class="reveal">
         <div class="section-title">Reasons I Love You ❤️</div>
         <div class="reasons-grid">
@@ -610,7 +683,6 @@
         </div>
     </section>
 
-    <!-- Interactive Love Letter Section -->
     <section class="love-letter-section reveal">
         <div class="section-title">A Special Note For You... 💌</div>
         <p class="instruction">ලියුම කියවන්න කවරය උඩ ක්ලික් කරන්න ❤️</p>
@@ -632,7 +704,6 @@
         </div>
     </section>
 
-    <!-- Our Memories Gallery (image2.png & image3.png) -->
     <section class="gallery-sec reveal">
         <div class="section-title">Our Memories ❤️</div>
         <div class="gallery">
@@ -645,15 +716,42 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="reveal">
         <p class="quote">Thank you for being my today and all of my tomorrows.</p>
         <p class="subquote">I love you more than words can say.</p>
         <div class="credits">Made with ❤️ for my love</div>
     </footer>
 
-    <!-- JavaScript for Animations & Interactivity -->
     <script>
+        // Dynamic Floating Hearts Background System
+        function createHeart() {
+            const container = document.getElementById('heartsContainer');
+            if(!container) return;
+            
+            const heart = document.createElement('i');
+            heart.classList.add('fas', 'fa-heart', 'floating-heart');
+            
+            // Randomly position and size hearts
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's'; // 4 to 7 seconds
+            
+            const size = Math.random() * 12 + 8; // 8px to 20px
+            heart.style.fontSize = size + 'px';
+            
+            // Random horizontal wobble effect
+            heart.style.opacity = Math.random() * 0.4 + 0.2;
+            
+            container.appendChild(heart);
+            
+            // Remove heart after animation ends
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+        
+        // Spawn hearts continuously
+        setInterval(createHeart, 300);
+
         // Hide Loader when page is fully loaded
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
