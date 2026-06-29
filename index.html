@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -141,7 +143,6 @@
             padding-bottom: 3px;
         }
 
-        /* Music Controller Icon Styling */
         .music-btn {
             color: #fff;
             font-size: 1.3rem;
@@ -169,12 +170,12 @@
         }
 
         .hero-bg-image {
+            background: linear-gradient(to right, rgba(216, 67, 108, 0.85) 15%, rgba(216, 67, 108, 0.5) 45%, rgba(0, 0, 0, 0) 80%), url('image1.png') no-repeat right center/cover;
             position: absolute;
             top: 0;
             right: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(216, 67, 108, 0.85) 15%, rgba(216, 67, 108, 0.5) 45%, rgba(0, 0, 0, 0) 80%), url('image1.png') no-repeat right center/cover;
             z-index: 1;
         }
 
@@ -419,6 +420,40 @@
         .gallery-img { width: 45%; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.12); }
         .gallery-img img { width: 100%; height: 320px; object-fit: cover; display: block; }
 
+        /* --- WhatsApp Beautiful Button Style --- */
+        .whatsapp-container {
+            margin: 40px auto 10px auto;
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: 0.3s ease;
+            animation: pulseBtn 2s infinite;
+        }
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            background: #20ba5a;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            color: #fff;
+        }
+        .whatsapp-btn i {
+            font-size: 1.3rem;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+
         /* --- Footer --- */
         footer {
             background: linear-gradient(to top, #ff6b8b, #ff8da1);
@@ -459,20 +494,25 @@
             .gallery-img img { height: 280px; }
             
             .reason-card { width: 45%; }
+            .whatsapp-btn { padding: 12px 24px; font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- AUDIO PLAYER TAG -->
     <audio id="myAudio" src="music.mp3" loop></audio>
 
+    <!-- FLOATING HEARTS BACKGROUND -->
     <div class="heart-bg-container" id="heartsContainer"></div>
 
+    <!-- Preloader -->
     <div id="loader">
         <div class="heart-loader"><i class="fas fa-heart"></i></div>
         <p>Our Love Story Loading...</p>
     </div>
 
+    <!-- Header Navigation -->
     <header>
         <div class="logo">Our Love Story</div>
         <nav>
@@ -486,6 +526,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg-image"></div>
         <div class="hero-content">
@@ -505,6 +546,7 @@
         </div>
     </section>
 
+    <!-- Our Journey Section -->
     <section class="journey-sec reveal">
         <div class="section-title">Our Journey 💬</div>
         <div class="timeline">
@@ -536,6 +578,7 @@
         </div>
     </section>
 
+    <!-- Reasons I Love You Section -->
     <section class="reveal">
         <div class="section-title">Reasons I Love You ❤️</div>
         <div class="reasons-grid">
@@ -562,6 +605,7 @@
         </div>
     </section>
 
+    <!-- Interactive Love Letter Section -->
     <section class="love-letter-section reveal">
         <div class="section-title">A Special Note For You... 💌</div>
         <p class="instruction">ලියුම කියවන්න කවරය උඩ ක්ලික් කරන්න ❤️</p>
@@ -583,6 +627,7 @@
         </div>
     </section>
 
+    <!-- Our Memories Gallery -->
     <section class="gallery-sec reveal">
         <div class="section-title">Our Memories 💕</div>
         <div class="gallery">
@@ -591,23 +636,27 @@
         </div>
     </section>
 
+    <!-- Footer Section with WhatsApp Button -->
     <footer class="reveal">
         <p class="quote">Thank you for being my today and all of my tomorrows.</p>
         <p class="subquote">I love you more than words can say.</p>
-        <div class="credits">Made with ❤️ for my love</div>
+        
+        <!-- Interactive WhatsApp Link Section (⚠️ 947XXXXXXXX වෙනුවට ඔයාගේ නම්බර් එක දාන්න) -->
+        <div class="whatsapp-container">
+            <a href="https://wa.me/94723383936?text=Happy%20Anniversary%20%E0%B6%B4%E0%B6%B4%E0%B7%8A%E0%B6%B4%E0%B6%B1%E0%B7%8A%21%20%F0%9F%A5%B9%E2%9D%A4%EF%B8%8F%20%E0%B7%83%E0%B6%B1%E0%B7%9A%E0%B6%A7%E0%B7%8A%20%E0%B6%91%E0%B6%9A%20%E0%B6%9C%E0%B7%9C%E0%B6%A6%E0%B6%AA%E0%B7%8A%20%E0%B6%BD%E0%B7%83%E0%B7%8A%E0%B7%83%E0%B6%B1%E0%B6%A3..." target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Send a Message to My Love ❤️
+            </a>
+        </div>
+
+        <div class="credits" style="margin-top: 25px;">Made with ❤️ for my love</div>
     </footer>
 
     <script>
         const audio = document.getElementById('myAudio');
         const musicBtn = document.getElementById('musicToggle');
 
-        // Toggle Music On/Off Manual Button
         function toggleMusic() {
-            if (audio.paused) {
-                playAudio();
-            } else {
-                pauseAudio();
-            }
+            if (audio.paused) { playAudio(); } else { pauseAudio(); }
         }
 
         function playAudio() {
@@ -621,23 +670,11 @@
             musicBtn.classList.remove('playing');
         }
 
-        // Toggle Letter + Trigger Autoplay Music when clicked
         function toggleLetter() {
             const envelope = document.querySelector('.envelope-wrapper');
             envelope.classList.toggle('open');
-            
-            // If music hasn't started yet, play it when she opens the letter
-            if (audio.paused) {
-                playAudio();
-            }
+            if (audio.paused) { playAudio(); }
         }
-
-        // Try to play music on any initial click on the body (Fallback)
-        document.body.addEventListener('click', () => {
-            if (audio.paused && !document.querySelector('.envelope-wrapper').classList.contains('open')) {
-                // optional: automatically start on first tap anywhere if desired
-            }
-        }, { once: true });
 
         // Floating Hearts Background Generator
         function createHeart() {
