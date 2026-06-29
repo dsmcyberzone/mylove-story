@@ -324,13 +324,13 @@
             margin-bottom: 40px;
         }
 
-        /* --- Our Journey (Timeline) --- */
+        /* --- Our Journey (4️⃣ EXPANDED TIMELINE STYLE) --- */
         .journey-sec { background-color: #fff5f7; }
         .timeline {
             display: flex;
             justify-content: space-around;
             align-items: flex-start;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
         }
@@ -349,7 +349,7 @@
         .timeline-item {
             position: relative;
             z-index: 2;
-            width: 22%;
+            width: 15%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -368,34 +368,80 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             margin-bottom: 12px;
             border: 2px solid #ffb6c1;
+            transition: 0.3s ease;
+        }
+        .timeline-item:hover .icon-wrapper {
+            background-color: var(--primary-pink);
+            color: white;
+            transform: scale(1.1);
         }
 
-        .timeline-item h4 { font-size: 0.85rem; color: #333; margin-bottom: 5px; }
+        .timeline-item h4 { font-size: 0.85rem; color: #333; margin-bottom: 5px; font-weight: 600; }
         .timeline-item p { font-size: 0.75rem; color: #777; line-height: 1.3; }
 
-        /* --- Reasons Section --- */
+        /* --- Reasons Section (7️⃣ FLIP CARDS STYLE) --- */
         .reasons-grid {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .reason-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px 15px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
-            width: 180px;
-            transition: 0.3s;
+        .flip-card {
+            width: 220px;
+            height: 180px;
+            perspective: 1000px;
         }
 
-        .reason-card:hover { transform: translateY(-5px); }
-        .reason-card i { font-size: 1.4rem; color: var(--primary-pink); margin-bottom: 12px; }
-        .reason-card h4 { font-size: 0.95rem; margin-bottom: 8px; color: #333; }
-        .reason-card p { font-size: 0.8rem; color: #666; }
+        .flip-inner {
+            width: 100%;
+            height: 100%;
+            transition: .8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.25);
+        }
+
+        .flip-front {
+            background: white;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border: 1px solid #ffeef2;
+        }
+
+        .flip-front i {
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+            margin-bottom: 12px;
+        }
+
+        .flip-back {
+            background: linear-gradient(135deg, #ff6b8b, #ff8da1);
+            color: white;
+            transform: rotateY(180deg);
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
 
         /* --- Interactive Love Letter --- */
         .instruction { font-size: 0.9rem; color: #888; margin-bottom: 20px; font-style: italic; }
@@ -438,7 +484,7 @@
             width: 0;
             height: 0;
             border-left: 165px solid #ffa3b5;
-            border-right: 145px solid #ffa3b5;
+            border-right: 165px solid #ffa3b5;
             border-bottom: 105px solid #ff7c97;
             border-top: 105px solid transparent;
             border-radius: 0 0 15px 15px;
@@ -460,6 +506,7 @@
             box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
 
+        /* 5️⃣ TYPEWRITER SMOOTH REVEAL REPLACEMENT */
         .letter-text {
             font-size: 0.82rem;
             color: #444;
@@ -488,7 +535,18 @@
             z-index: 5;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
-        .envelope-wrapper.open .letter-text { opacity: 1; overflow-y: auto; }
+        
+        /* Triggers the typewriter reveal smoothly */
+        .envelope-wrapper.open .letter-text {
+            opacity: 1;
+            overflow-y: auto;
+            animation: typewriterReveal 1.5s ease-out forwards;
+        }
+
+        @keyframes typewriterReveal {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .letter-text::-webkit-scrollbar { width: 4px; }
         .letter-text::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
@@ -564,15 +622,19 @@
             .hero p { font-size: 0.95rem; }
             .love-counter { text-align: center; margin: 10px auto 0 auto; }
 
+            /* Timeline Mobile Stacked Layout */
             .timeline { flex-direction: column; align-items: center; gap: 30px; }
-            .timeline::before { width: 2px; height: 80%; top: 20px; left: 50%; transform: translateX(-50%); }
+            .timeline::before { width: 2px; height: 85%; top: 20px; left: 50%; transform: translateX(-50%); }
             .timeline-item { width: 100%; }
 
             .gallery { flex-direction: column; align-items: center; gap: 20px; }
             .gallery-img { width: 90%; }
             .gallery-img img { height: 280px; }
             
-            .reason-card { width: 45%; }
+            .flip-card { width: 45%; min-width: 145px; height: 160px; }
+            .flip-front, .flip-back { padding: 10px; font-size: 0.8rem; }
+            .flip-front i { font-size: 1.4rem; margin-bottom: 6px; }
+            
             .whatsapp-btn { padding: 12px 24px; font-size: 0.95rem; }
             
             .envelope-wrapper { width: 290px; height: 190px; }
@@ -654,14 +716,24 @@
                 <p>Love Started</p>
             </div>
             <div class="timeline-item">
+                <div class="icon-wrapper"><i class="fas fa-glass-cheers"></i></div>
+                <h4>2023 - 12 - 31</h4>
+                <p>First New Year Together</p>
+            </div>
+            <div class="timeline-item">
+                <div class="icon-wrapper"><i class="fas fa-gift"></i></div>
+                <h4>2024 - 02 - 14</h4>
+                <p>Valentine's Day</p>
+            </div>
+            <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-kiss-wink-heart"></i></div>
                 <h4>2025 - 05 - 02</h4>
-                <p>Our First Kiss</p>
+                <p>First Kiss</p>
             </div>
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-infinity"></i></div>
                 <h4>2026 - 07 - 10</h4>
-                <p>3 Years & Counting...</p>
+                <p>3 Years & Counting ❤️</p>
             </div>
         </div>
     </section>
@@ -669,25 +741,29 @@
     <section class="reveal">
         <div class="section-title">Reasons I Love You ❤️</div>
         <div class="reasons-grid">
-            <div class="reason-card">
-                <i class="fas fa-heart"></i>
-                <h4>Your Smile</h4>
-                <p>It brightens my darkest days</p>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front"><i class="fas fa-smile"></i>❤️ Your Smile</div>
+                    <div class="flip-back">Because it brightens every single day of my life ❤️</div>
+                </div>
             </div>
-            <div class="reason-card">
-                <i class="fas fa-star"></i>
-                <h4>Your Heart</h4>
-                <p>So kind, pure & beautiful</p>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front"><i class="fas fa-star"></i>❤️ Your Heart</div>
+                    <div class="flip-back">So pure, incredibly kind, and beautiful inside out ✨</div>
+                </div>
             </div>
-            <div class="reason-card">
-                <i class="fas fa-infinity"></i>
-                <h4>Our Bond</h4>
-                <p>Unbreakable & stronger every day</p>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front"><i class="fas fa-infinity"></i>❤️ Our Bond</div>
+                    <div class="flip-back">Unbreakable and growing stronger with every second ♾️</div>
+                </div>
             </div>
-            <div class="reason-card">
-                <i class="fas fa-sparkles"></i>
-                <h4>Our Memories</h4>
-                <p>Priceless moments together</p>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front"><i class="fas fa-sparkles"></i>❤️ Our Memories</div>
+                    <div class="flip-back">Priceless moments that I will cherish forever and ever 💎</div>
+                </div>
             </div>
         </div>
     </section>
@@ -701,26 +777,26 @@
                 <div class="flap"></div>
                 <div class="pocket"></div>
                 <div class="letter">
-                    <div class="letter-text">
+                    <div class="letter-text" id="typeWriterText">
                         <h3>💌 Happy 3rd Anniversary My Love 💌</h3>
                         <p><b>Dear Trishy, ❤️</b></p>
                         <p>අද 2026 ජූලි 10.</p>
                         <p>අපේ ජීවිතවල විශේෂම දවසක්. අදට හරියටම අවුරුදු තුනක් වෙනවා අපි දෙන්නා එකට මේ ලස්සන ගමන පටන් අරගෙන.</p>
                         <p>2023 ජූලි 10 වෙනිදා මට තවමත් මතකයි. එදා මම හිතුවෙවත් නැහැ ඔයා මගේ ජීවිතේ මෙච්චර ලොකු කොටසක් වෙයි කියලා. ඒ දවසේ පටන් ගත්ත කතාබහ, ඒ puñci මොහොතවල්, ඒ හිනාවල්, අද වෙනකොට මගේ ජීවිතේ වටිනාම මතක වෙලා තියෙනවා.</p>
                         <p>මේ අවුරුදු තුන ඇතුළේ අපි එකට ගොඩක් දේවල් දැක්කා. සතුටු වෙච්ච දවස් තිබුණා. දුක් වෙච්ච දවස් තිබුණා. තරහා වෙච්ච අවස්ථා තිබුණා. එකිනෙකා තේරුම් ගන්න අමාරු වෙච්ච මොහොතවල් තිබුණා. ඒත් ඒ හැමදේම මැද අපි තාමත් එකට ඉන්නවා. ඒක තමයි මට වටින්නේ.</p>
-                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. කතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් පුළුවන් කෙනෙක් ලැබුණා.</p>
-                        <p>මම දන්නවා මම හැමවෙලේම perfect كෙනෙක් නෙවෙයි කියලා. සමහර වෙලාවට වැරදි කරනවා. ඔයාව දුක් කරනවා. තරහා ගස්සනවා. ඒත් එක දෙයක් මම දන්නවා... මම ඔයාට ආදරෙයි. ❤️</p>
+                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. கතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් පුළුවන් කෙනෙක් ලැබුණා.</p>
+                        <p>මම දන්නවා මම හැමවෙලේම perfect කෙනෙක් නෙවෙයි කියලා. සමහර වෙලාවට වැරදි කරනවා. ඔයාව දුක් කරනවා. තරහා ගස්සනවා. ඒත් එක දෙයක් මම දන්නවා... මම ඔයාට ආදරෙයි. ❤️</p>
                         <p>ඒ ආදරේ 2023 ජූලි 10 තිබුණා වගේම අදත් තියෙනවා. ඒ වගේම හෙටත් තියේවි.</p>
                         <p>ඔයාගේ හිනාව දැක්කම මට දැනෙන සතුට වචනවලින් කියන්න බැහැ. ඔයාගේ message එකක් ආවම දැනෙන හැඟීම විස්තර කරන්න බැහැ. ඔයා ගැන හිතන හැම මොහොතකම මගේ හිතට එන්නේ සැනසීමක්.</p>
                         <p>Trishy, ඔයා මගේ girlfriend විතරක් නෙවෙයි. ඔයා මගේ best friend. ඔයා මගේ comfort place. ඔයා මගේ safe place. ඔයා මගේ favorite person.</p>
                         <p>මේ අවුරුදු තුන ඇතුළේ අපි හදාගත්ත මතක හැම එකක්ම මගේ හිතේ හැමදාම තියේවි. අපි එකට ගිය තැන්. එකට ගත්ත photos. රෑ වෙනකන් කරපු chats. Call කරපු පැය ගණන්. එකට හිනාවෙච්ච විහිළු. ඒ හැමදේම මගේ ජීවිතේ ලස්සනම කොටසක්.</p>
-                        <p>සමහර වෙලාවට මම හිතනවා... 2023 ජූලි 10 වෙනිදා අපි දෙන්නා හම්බෙලා නැත්නම් මගේ ජීවිතේ... කොහොම වෙයිද කියලා. ඒත් වාසනාවකට අපි හම්බුණා. වාසනාවකට ඔයා මගේ ජීවිතේට ආවා. වාසනාවකට මට ඔයා ලැබුණා. ඒ වෙනුවෙන් මම හැමදාම ස්තූතිවන්ත වෙනවා.</p>
+                        <p>සමහර වෙලාවට මම හිතනවා... 2023 ජූලි 10 වෙනිදා අපි දෙන්නා හම්බෙලා නැත්නම් මගේ ජීවිතේ කොහොම වෙයිද කියලා. ඒත් වාසනාවකට අපි හම්බුණා. වාසනාවකට ඔයා මගේ ජීවිතේට ආවා. වාසනාවකට මට ඔයා ලැබුණා. ඒ වෙනුවෙන් මම හැමදාම ස්තූතිවන්ත වෙනවා.</p>
                         <p>අද අපේ 3rd Anniversary එක. ඒත් මට මේක අවසානයක් නෙවෙයි. මේක තව ලස්සන කතාවක තවත් chapter එකක් විතරයි. මට ඕනේ තව අවුරුදු ගොඩක් ඔයා එක්ක memories හදාගන්න. තව photos ගන්න. තව හිනාවෙන්න. තව දේවල් අත්විඳින්න. තව ආදරේ කරන්න. අද වගේම හැමදාම.</p>
                         <p>අන්තිමට මට කියන්න තියෙන්නේ එක දෙයක් විතරයි...<br>Thank you for loving me. ❤️<br>Thank you for staying with me. ❤️<br>Thank you for being my happiness. ❤️</p>
                         <p>Happy 3rd Anniversary, My Love. 🌹</p>
                         
                         <div class="signature-block">
-                            <p>2023.07.10 ➝ 2026.07.10</p>
+                            <p>2023.07.10 ➔ 2026.07.10</p>
                             <p><b>Three Years.</b></p>
                             <p><b>Countless Memories.</b></p>
                             <p><b>One Beautiful Love Story. ❤️</b></p>
@@ -749,13 +825,15 @@
         <p class="subquote">I love you more than words can say.</p>
         
         <div class="whatsapp-container">
-            <a href="https://wa.me/947XXXXXXXX?text=Happy%20Anniversary%20Baby%20%21%F0%9F%A5%B9%E2%9D%A4%EF%B8%8F" target="_blank" class="whatsapp-btn">
+            <a href="https://wa.me/94723383936?text=Happy%20Anniversary%20Baby%20%21%F0%9F%A5%B9%E2%9D%A4%EF%B8%8F" target="_blank" class="whatsapp-btn">
                 <i class="fab fa-whatsapp"></i> Send a Message to My Love ❤️
             </a>
         </div>
 
         <div class="credits" style="margin-top: 25px;">Made with ❤️ for my love</div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script>
         const audio = document.getElementById('myAudio');
@@ -767,7 +845,6 @@
             setTimeout(() => {
                 document.getElementById("introScreen").style.display = "none";
             }, 400);
-            // Autoplay Music Trigger on First Interaction (Gift Button Click)
             playAudio();
         }
 
@@ -786,7 +863,22 @@
         updateLoveCounter();
         setInterval(updateLoveCounter, 1000);
 
-        /* --- MUSIC UTILITIES --- */
+        /* --- 3️⃣ ANNIVERSARY FIREWORKS JS (CELEBRATION CONFETTI) --- */
+        window.addEventListener("load",()=>{
+            const today = new Date();
+            // Runs specifically on July 10th anniversary
+            if(today.getMonth() === 6 && today.getDate() === 10){
+                setTimeout(()=>{
+                    confetti({
+                        particleCount: 250,
+                        spread: 180,
+                        origin: { y: 0.6 }
+                    });
+                }, 2500);
+            }
+        });
+
+        /* --- MUSIC UTILITIES & ENVELOPE FUNCTIONS --- */
         function toggleMusic() {
             if (audio.paused) { playAudio(); } else { pauseAudio(); }
         }
