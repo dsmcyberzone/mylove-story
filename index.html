@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -153,50 +155,35 @@
             cursor: pointer;
         }
 
-        /* --- Hero Section with SMOOKE/CLOUD EFFECT (Fixing Image Issue) --- */
+        /* --- Hero Section (Exact Layout of the Mockup) --- */
         .hero {
             position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
             padding: 0 10%;
-            background-color: #ffb1c1; /* Fallback color */
             overflow: hidden;
+            background-color: #f7a3b7; /* Fallback color */
         }
 
-        /* Image Layer with Smoke Border Mask */
+        /* 100% Exact Blend Mode for your design image */
         .hero-bg-image {
             position: absolute;
             top: 0;
             right: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255, 107, 139, 0.4), rgba(0,0,0,0.1)), url('image1.png') no-repeat center center/cover;
-            z-index: -1;
-            /* SMOKE EFFECT: Smooth radial blend around the image */
-            box-shadow: inset 0px 0px 100px 30px #fff5f7, inset 0px 0px 40px 10px rgba(255, 245, 247, 0.5);
-            mask-image: radial-gradient(circle at 65% 50%, black 30%, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle at 65% 50%, black 30%, transparent 80%);
-        }
-
-        /* Extra cloud puff overlay to blend like the design mockup */
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: radial-gradient(circle at bottom, #fff5f7 20%, transparent 80%);
-            pointer-events: none;
+            /* Left side has dark pink/purple overlay gradient, Right side fades smoothly into the image */
+            background: linear-gradient(to right, rgba(216, 67, 108, 0.85) 15%, rgba(216, 67, 108, 0.6) 35%, rgba(0, 0, 0, 0) 75%), url('image1.png') no-repeat right center/cover;
             z-index: 1;
         }
 
         .hero-content {
-            max-width: 500px;
+            position: relative;
+            max-width: 550px;
             color: #fff;
             animation: fadeInUp 1.2s ease-out;
-            z-index: 2;
+            z-index: 2; /* Stands on top of background image layer */
         }
 
         @keyframes fadeInUp {
@@ -206,89 +193,79 @@
 
         .hero h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
-            line-height: 1.2;
+            font-size: 4.5rem;
+            line-height: 1.1;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
         .hero p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 25px;
-            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            opacity: 0.95;
         }
 
         .date-badge {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 10px 22px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            border: 1px solid rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.3);
             margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
-        .heart-btn {
-            background: #fff;
-            color: var(--primary-pink);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.4);
-            cursor: pointer;
-            transition: 0.3s;
+        /* Subtitle Styling 'You + Me = Forever' from mockup */
+        .sub-romantic-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ffeef2;
+            margin-top: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            opacity: 0.9;
         }
 
-        .heart-btn:hover {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        /* Wave Effect Divider */
+        /* Smooth Bottom Wave Curve from logo.png_2.png */
         .wave-divider {
             position: absolute;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             width: 100%;
             line-height: 0;
-            z-index: 2;
+            z-index: 3;
         }
 
         .wave-divider svg {
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 80px;
+            height: 90px;
         }
 
         .wave-divider .shape-fill {
-            fill: #ffeef2;
+            fill: #fff5f7;
         }
 
         /* --- Sections Common Style --- */
         section {
-            padding: 80px 20px;
+            padding: 90px 20px;
             text-align: center;
-            background: transparent; /* Allows hearts to show through */
         }
 
         .section-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--dark-pink);
             margin-bottom: 50px;
         }
 
         /* --- Our Journey (Timeline) --- */
         .journey-sec {
-            background-color: rgba(255, 238, 242, 0.8);
-            backdrop-filter: blur(2px);
+            background-color: #fff5f7;
         }
 
         .timeline {
@@ -398,127 +375,9 @@
             color: #666;
         }
 
-        /* --- Interactive Love Letter Styles --- */
-        .love-letter-section {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .instruction {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        .envelope-wrapper {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            margin: 60px auto 0 auto;
-            background-color: transparent;
-            cursor: pointer;
-            perspective: 1000px;
-        }
-
-        .envelope {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: #ff8da1;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease;
-        }
-
-        .flap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-top: 100px solid #ff6b8b;
-            transform-origin: top;
-            transition: transform 0.4s ease 0.2s, z-index 0.2s ease 0.2s;
-            z-index: 4;
-        }
-
-        .pocket {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 150px solid #ffa3b5;
-            border-right: 150px solid #ffa3b5;
-            border-bottom: 100px solid #ff7c97;
-            border-top: 100px solid transparent;
-            border-radius: 0 0 15px 15px;
-            z-index: 3;
-        }
-
-        .letter {
-            position: absolute;
-            bottom: 5px;
-            left: 15px;
-            width: 270px;
-            height: 180px;
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.5s ease 0.4s, height 0.5s ease 0.4s;
-            z-index: 2;
-            overflow: hidden;
-        }
-
-        .letter-text {
-            font-size: 0.75rem;
-            color: #444;
-            line-height: 1.5;
-            text-align: left;
-            opacity: 0;
-            transition: opacity 0.3s ease 0.5s;
-        }
-
-        .letter-text p {
-            margin-bottom: 8px;
-        }
-
-        .signature {
-            text-align: right;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
-            color: #ff4f8b;
-            margin-top: 10px;
-        }
-
-        /* Open State Animations */
-        .envelope-wrapper.open .flap {
-            transform: rotateX(180deg);
-            z-index: 1;
-            transition: transform 0.4s ease, z-index 0.2s ease 0.2s;
-        }
-
-        .envelope-wrapper.open .letter {
-            transform: translateY(-130px);
-            height: 280px;
-            z-index: 5;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .envelope-wrapper.open .letter-text {
-            opacity: 1;
-            overflow-y: auto;
-            height: 100%;
-        }
-
         /* --- Memories Gallery --- */
         .gallery-sec {
-            background-color: rgba(255, 238, 242, 0.8);
-            backdrop-filter: blur(2px);
+            background-color: #fff5f7;
         }
 
         .gallery {
@@ -578,13 +437,16 @@
 </head>
 <body>
 
+    <!-- FLOATING HEARTS BACKGROUND EFFECT LAYER -->
     <div class="heart-bg-container" id="heartsContainer"></div>
 
+    <!-- Preloader -->
     <div id="loader">
         <div class="heart-loader"><i class="fas fa-heart"></i></div>
         <p>Our Love Story Loading...</p>
     </div>
 
+    <!-- Header Navigation -->
     <header>
         <div class="logo">Our Love Story</div>
         <nav>
@@ -599,30 +461,33 @@
         </div>
     </header>
 
+    <!-- Hero Section (Perfect Overlay and Right Alignment for image1.png) -->
     <section class="hero">
         <div class="hero-bg-image"></div>
+        
         <div class="hero-content">
             <h1>Happy<br>3<sup>rd</sup> Anniversary</h1>
             <p>Three years of love, laughter & endless memories with my favorite person. ❤️</p>
+            
             <div class="date-badge">
                 <i class="far fa-calendar-alt"></i>
                 <span>2026 - 07 - 10</span>
             </div>
-            <br>
-            <button class="heart-btn">
-                <i class="fas fa-heart"></i>
-            </button>
+            
+            <div class="sub-romantic-text">You + Me = Forever 💕</div>
         </div>
 
+        <!-- Wave Design at the Bottom -->
         <div class="wave-divider">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,3,57.05,11.3,86.1,17.75C163,34.62,242.27,69.2,321.39,56.44Z" class="shape-fill"></path>
+                <path d="M0,0 C300,90 900,10 1200,80 L1200,120 L0,120 Z" class="shape-fill"></path>
             </svg>
         </div>
     </section>
 
+    <!-- Our Journey Section -->
     <section class="journey-sec reveal">
-        <div class="section-title">Our Journey ❤️</div>
+        <div class="section-title">Our Journey 💬</div>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="icon-wrapper"><i class="fas fa-heart"></i></div>
@@ -652,6 +517,7 @@
         </div>
     </section>
 
+    <!-- Reasons I Love You Section -->
     <section class="reveal">
         <div class="section-title">Reasons I Love You ❤️</div>
         <div class="reasons-grid">
@@ -683,29 +549,9 @@
         </div>
     </section>
 
-    <section class="love-letter-section reveal">
-        <div class="section-title">A Special Note For You... 💌</div>
-        <p class="instruction">ලියුම කියවන්න කවරය උඩ ක්ලික් කරන්න ❤️</p>
-        
-        <div class="envelope-wrapper" onclick="toggleLetter()">
-            <div class="envelope">
-                <div class="flap"></div>
-                <div class="pocket"></div>
-                <div class="letter">
-                    <div class="letter-text">
-                        <p><b>Dear Trishy,</b></p>
-                        <p>ඔයා මගේ ජීවිතයට ආපු දවසේ ඉඳන් අද වෙනකම් මාව ලෝකයේ සතුටුම කෙනා කරාට ගොඩක් ස්තූතියි.</p>
-                        <p>අපි ගත කරපු හැම තත්පරයක්ම මට හීනයක් වගේ ලස්සනයි. අපේ ආදරයට අවුරුදු 3ක් පිරෙන මේ මොහොතේ මට ඔයාට කියන්න තියෙන්නේ එකම දෙයයි...</p>
-                        <p>මම ඔයාට හැමදාටම වඩා අද ආදරෙයි, හෙට මීටත් වඩා ආදරය කරනවා. මගේ අවසාන හුස්ම පොද දක්වාම මම ඔයාගේම විතරයි! ❤️</p>
-                        <p class="signature">~ ඔයාගේම විතරයි ~</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Our Memories Gallery (image2.png & image3.png) -->
     <section class="gallery-sec reveal">
-        <div class="section-title">Our Memories ❤️</div>
+        <div class="section-title">Our Memories 💕</div>
         <div class="gallery">
             <div class="gallery-img">
                 <img src="image2.png" alt="Memory 1">
@@ -716,14 +562,16 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="reveal">
         <p class="quote">Thank you for being my today and all of my tomorrows.</p>
         <p class="subquote">I love you more than words can say.</p>
         <div class="credits">Made with ❤️ for my love</div>
     </footer>
 
+    <!-- JavaScript Section -->
     <script>
-        // Dynamic Floating Hearts Background System
+        // Floating Hearts Mechanism
         function createHeart() {
             const container = document.getElementById('heartsContainer');
             if(!container) return;
@@ -731,28 +579,19 @@
             const heart = document.createElement('i');
             heart.classList.add('fas', 'fa-heart', 'floating-heart');
             
-            // Randomly position and size hearts
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's'; // 4 to 7 seconds
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             
-            const size = Math.random() * 12 + 8; // 8px to 20px
+            const size = Math.random() * 12 + 8;
             heart.style.fontSize = size + 'px';
-            
-            // Random horizontal wobble effect
-            heart.style.opacity = Math.random() * 0.4 + 0.2;
+            heart.style.opacity = Math.random() * 0.4 + 0.15;
             
             container.appendChild(heart);
-            
-            // Remove heart after animation ends
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
+            setTimeout(() => { heart.remove(); }, 7000);
         }
-        
-        // Spawn hearts continuously
-        setInterval(createHeart, 300);
+        setInterval(createHeart, 350);
 
-        // Hide Loader when page is fully loaded
+        // Preloader Closer
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             setTimeout(() => {
@@ -761,29 +600,21 @@
                     loader.style.display = 'none';
                     reveal(); 
                 }, 500);
-            }, 1000); 
+            }, 800); 
         });
 
-        // Scroll Reveal Animation Function
+        // Scroll Reveal
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 150) {
                     reveals[i].classList.add('active');
                 }
             }
         }
         window.addEventListener('scroll', reveal);
-
-        // Toggle Love Letter Open/Close
-        function toggleLetter() {
-            const envelope = document.querySelector('.envelope-wrapper');
-            envelope.classList.toggle('open');
-        }
     </script>
 </body>
 </html>
