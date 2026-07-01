@@ -89,22 +89,22 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
+            z-index: 9999; /* 👈 Mobile එකේ scroll කරද්දී හැම තැනකම උඩින් පෙනෙන්න z-index එක වැඩි කළා */
             overflow: hidden;
         }
 
         .floating-heart {
             position: absolute;
             bottom: -20px;
-            color: rgba(255, 107, 139, 0.25);
+            color: #ff3366; /* හොඳට කැපී පෙනෙන තද ලස්සන රෝස/රතු පැහැය */
             font-size: 14px;
             animation: floatUp linear infinite;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(0) scale(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
+            10% { opacity: 0.85; } /* පැහැදිලි බව (Opacity) වැඩි කළා */
+            90% { opacity: 0.85; }
             100% { transform: translateY(-105vh) scale(1.3) rotate(360deg); opacity: 0; }
         }
 
@@ -119,7 +119,7 @@
             width: 100%;
             height: 100vh;
             background: #ffeef2;
-            z-index: 9999;
+            z-index: 100000;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -325,7 +325,11 @@
         }
 
         /* --- Our Journey (4️⃣ EXPANDED TIMELINE STYLE) --- */
-        .journey-sec { background-color: #fff5f7; }
+        .journey-sec { 
+            background-color: #fff5f7; 
+            position: relative;
+        }
+
         .timeline {
             display: flex;
             justify-content: space-around;
@@ -333,6 +337,7 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
+            z-index: 2;
         }
 
         .timeline::before {
@@ -823,9 +828,9 @@
                         <p><b>Dear Trishy, ❤️</b></p>
                         <p>අද 2026 ජූලි 10.</p>
                         <p>අපේ ජීවිතවල විශේෂම දවසක්. අදට හරියටම අවුරුදු තුනක් වෙනවා අපි දෙන්නා එකට මේ ලස්සන ගමන පටන් අරගෙන.</p>
-                        <p>2023 ජූලි 10 වෙනිදා මට තවමත් මතකයි. එදා මම හිතුවෙවත් නැහැ ඔයා මගේ ජීවිතේ මෙච්චර ලොකු කොටසක් වෙයි කියලා. ඒ දවසේ පටන් ගත්ත කතාබහ, ඒ puñci මොහොතවල්, ඒ හිනාවල්, අද වෙනකොට මගේ ජීවිතේ වටිනාම මතක වෙලා තියෙනවා.</p>
+                        <p>2023 ජූලි 10 වෙනිදා මට තවමත් මතකයි. එදා මම හිතුවෙවත් නැහැ ඔයා මගේ ජීවිතේ මෙච්චර ලොකු කොටසක් වෙයි කියලා. ඒ දවසේ පටන් ගත්ත කතාබහ, ඒ පුංචි මොහොතවල්, ඒ හිනාවල්, අද වෙනකොට මගේ ජීවිතේ වටිනාම මතක වෙලා තියෙනවා.</p>
                         <p>මේ අවුරුදු තුන ඇතුළේ අපි එකට ගොඩක් දේවල් දැක්කා. සතුටු වෙච්ච දවස් තිබුණා. දුක් වෙච්ච දවස් තිබුණා. තරහා වෙච්ච අවස්ථා තිබුණා. එකිනෙකා තේරුම් ගන්න අමාරු වෙච්ච මොහොතවල් තිබුණා. ඒත් ඒ හැමදේම මැද අපි තාමත් එකට ඉන්නවා. ඒක තමයි මට වටින්නේ.</p>
-                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. කතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් පුළුවන් කෙනෙක් ලැබුණා.</p>
+                        <p>ඔයා මගේ ජීවිතේට ආවට පස්සේ මගේ දවස් වෙනස් වුණා. මට හිනාවෙන්න හේතුවක් ලැබුණා. කතා කරන්න කෙනෙක් ලැබුණා. මගේ සතුට බෙදාගන්නත්, මගේ දුක කියන්නත්, මගේ හිත නිදහස් කරන්නත් puළුවන් කෙනෙක් ලැබුණා.</p>
                         <p>මම දන්නවා මම හැමවෙලේම perfect කෙනෙක් නෙවෙයි කියලා. සමහර වෙලාවට වැරදි කරනවා. ඔයාව දුක් කරනවා. තරහා ගස්සනවා. ඒත් එක දෙයක් මම දන්නවා... මම ඔයාට ආදරෙයි. ❤️</p>
                         <p>ඒ ආදරේ 2023 ජූලි 10 තිබුණා වගේම අදත් තියෙනවා. ඒ වගේම හෙටත් තියේවි.</p>
                         <p>ඔයාගේ හිනාව දැක්කම මට දැනෙන සතුට වචනවලින් කියන්න බැහැ. ඔයාගේ message එකක් ආවම දැනෙන හැඟීම විස්තර කරන්න බැහැ. ඔයා ගැන හිතන හැම මොහොතකම මගේ හිතට එන්නේ සැනසීමක්.</p>
@@ -922,14 +927,12 @@
 
         /* --- 8️⃣ FINAL SURPRISE JS (WITH BONUS CONFETTI BURST) --- */
         function finalAnswer(){
-            // Triggers celebratory confetti instantly on click
             triggerConfetti();
             setTimeout(() => {
                 alert("I Love You Forever ❤️");
             }, 100);
         }
 
-        // Shared Confetti Trigger Function
         function triggerConfetti() {
             confetti({
                 particleCount: 250,
@@ -960,7 +963,7 @@
             if (audio.paused) { playAudio(); }
         }
 
-        // Floating Hearts Background Generator
+        /* --- BACKGROUND FLOATING HEARTS GENERATOR --- */
         function createHeart() {
             const container = document.getElementById('heartsContainer');
             if(!container) return;
@@ -970,11 +973,15 @@
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             const size = Math.random() * 12 + 8;
             heart.style.fontSize = size + 'px';
-            heart.style.opacity = Math.random() * 0.3 + 0.6;
+            
+            // හාර්ට්ස් වල පාට සහ පැහැදිලි බව (Opacity) හැම තැනකම එක වගේ ලස්සනට පෙනෙන්නට හැදීම
+            heart.style.opacity = Math.random() * 0.2 + 0.75; 
+            
             container.appendChild(heart);
             setTimeout(() => { heart.remove(); }, 7000);
         }
-        setInterval(createHeart, 350);
+        // හාර්ට්ස් ගලායන වේගය තව ටිකක් වැඩි කළා (මිලිසෙකන්ඩ් 250 කට වරක්)
+        setInterval(createHeart, 250);
 
         // Preloader Closer
         window.addEventListener('load', () => {
