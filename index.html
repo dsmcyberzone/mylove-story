@@ -97,7 +97,7 @@
             position: absolute;
             bottom: -20px;
             color: rgba(255, 107, 139, 0.25);
-            font-size: 50px;
+            font-size: 14px;
             animation: floatUp linear infinite;
         }
 
@@ -970,7 +970,7 @@
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             const size = Math.random() * 12 + 8;
             heart.style.fontSize = size + 'px';
-            heart.style.opacity = Math.random() * 0.4 + 0.15;
+            heart.style.opacity = Math.random() * 0.3 + 0.6;
             container.appendChild(heart);
             setTimeout(() => { heart.remove(); }, 7000);
         }
